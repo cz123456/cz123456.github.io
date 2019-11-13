@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MySQL总结 | Cz的博客 | Cz的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="MySQL数据库增删改查SQL语句查看数据库1show databases;  使用数据库1use 数据库名;  创建数据库1CREATE DATABASE 数据库名;  删除数据库1DROP DATABASE 数据库名;  创建表1create table 表名(    列名1 类型(长度) [约束],    列名2 类型(长度) [约束],    ……);  长度区别int类型带长度：不影响存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL总结">
+<meta property="og:url" content="https:&#x2F;&#x2F;cz123456.github.io&#x2F;2019&#x2F;10&#x2F;09&#x2F;MySQL%E6%80%BB%E7%BB%93&#x2F;index.html">
+<meta property="og:site_name" content="Cz的博客">
+<meta property="og:description" content="MySQL数据库增删改查SQL语句查看数据库1show databases;  使用数据库1use 数据库名;  创建数据库1CREATE DATABASE 数据库名;  删除数据库1DROP DATABASE 数据库名;  创建表1create table 表名(    列名1 类型(长度) [约束],    列名2 类型(长度) [约束],    ……);  长度区别int类型带长度：不影响存">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-09T01:35:31.882Z">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cz</h5>
+          <a href="mailto:634206017@qq.com" target="_blank" rel="noopener" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MySQL总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MySQL总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-09T01:32:07.000Z" itemprop="datePublished" class="page-time">
+  2019-10-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL数据库增删改查SQL语句"><span class="post-toc-number">1.</span> <span class="post-toc-text">MySQL数据库增删改查SQL语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查看数据库"><span class="post-toc-number">1.0.0.0.1.</span> <span class="post-toc-text">查看数据库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#使用数据库"><span class="post-toc-number">1.0.0.0.2.</span> <span class="post-toc-text">使用数据库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建数据库"><span class="post-toc-number">1.0.0.0.3.</span> <span class="post-toc-text">创建数据库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#删除数据库"><span class="post-toc-number">1.0.0.0.4.</span> <span class="post-toc-text">删除数据库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建表"><span class="post-toc-number">1.0.0.0.5.</span> <span class="post-toc-text">创建表</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#长度区别"><span class="post-toc-number">1.0.0.0.6.</span> <span class="post-toc-text">长度区别</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#删除表"><span class="post-toc-number">1.0.0.0.7.</span> <span class="post-toc-text">删除表</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#表约束"><span class="post-toc-number">1.0.0.0.8.</span> <span class="post-toc-text">表约束</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查看表结构"><span class="post-toc-number">1.0.0.0.9.</span> <span class="post-toc-text">查看表结构</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改表"><span class="post-toc-number">1.0.0.0.10.</span> <span class="post-toc-text">修改表</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改列名"><span class="post-toc-number">1.0.0.0.11.</span> <span class="post-toc-text">修改列名</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改列类型"><span class="post-toc-number">1.0.0.0.12.</span> <span class="post-toc-text">修改列类型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改列类型-1"><span class="post-toc-number">1.0.0.0.13.</span> <span class="post-toc-text">修改列类型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据查询-单表"><span class="post-toc-number">1.0.0.0.14.</span> <span class="post-toc-text">==============================数据查询-单表=================================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查询表中全部信息"><span class="post-toc-number">1.0.0.0.15.</span> <span class="post-toc-text">查询表中全部信息</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查询表中指定列的信息"><span class="post-toc-number">1.0.0.0.16.</span> <span class="post-toc-text">查询表中指定列的信息</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据去重"><span class="post-toc-number">1.0.0.0.17.</span> <span class="post-toc-text">数据去重</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#拼接结果"><span class="post-toc-number">1.0.0.0.18.</span> <span class="post-toc-text">拼接结果</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#运算符优先级："><span class="post-toc-number">1.0.0.0.19.</span> <span class="post-toc-text">运算符优先级：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设置别名-注意：关键字as可以省略"><span class="post-toc-number">1.0.0.0.20.</span> <span class="post-toc-text">设置别名(注意：关键字as可以省略)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">1.0.0.0.21.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#条件中比较运算符：-等于-大于-gt-大于等于-gt-小于-lt-小于等于-lt-不等于-或-lt-gt"><span class="post-toc-number">1.0.0.0.22.</span> <span class="post-toc-text">条件中比较运算符：( 等于:=  大于:&gt;  大于等于:&gt;=  小于:&lt;  小于等于:&lt;=  不等于:!= 或 &lt;&gt;  )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#逻辑运算符-并且-and-或-amp-amp-或-or-非-not-或"><span class="post-toc-number">1.0.0.0.23.</span> <span class="post-toc-text">逻辑运算符( 并且:and 或 &amp;&amp;   或:or    非:not 或 !    )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#范围查询"><span class="post-toc-number">1.0.0.0.24.</span> <span class="post-toc-text">范围查询</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#集合查询-判断列的值是否在指定的集合中"><span class="post-toc-number">1.0.0.0.25.</span> <span class="post-toc-text">集合查询( 判断列的值是否在指定的集合中 )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#NULL值查询-注意：列中值为null不能使用-去查询"><span class="post-toc-number">1.0.0.0.26.</span> <span class="post-toc-text">NULL值查询( 注意：列中值为null不能使用=去查询 )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#模糊查询"><span class="post-toc-number">1.0.0.0.27.</span> <span class="post-toc-text">模糊查询</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#：表示0到多个字符，示例："><span class="post-toc-number">1.0.0.0.28.</span> <span class="post-toc-text">%：表示0到多个字符，示例：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#：表示一个字符，可多次使用，示例："><span class="post-toc-number">1.0.0.0.29.</span> <span class="post-toc-text">_：表示一个字符，可多次使用，示例：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#结果排序-对查询出的结果按照一列或多列进行升序还是降序排列-升序-asc-降序-desc-注意：不能使用中文的别名排序"><span class="post-toc-number">1.0.0.0.30.</span> <span class="post-toc-text">结果排序( 对查询出的结果按照一列或多列进行升序还是降序排列 升序:asc  降序:desc    注意：不能使用中文的别名排序)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#分页查询-beginIndex-表示从第多少条数据开始-pageSize-表示每页显示的数据条数"><span class="post-toc-number">1.0.0.0.31.</span> <span class="post-toc-text">分页查询( beginIndex:表示从第多少条数据开始   pageSize:表示每页显示的数据条数 )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#beginIndex公式：-当前页数-1-pageSize"><span class="post-toc-number">1.0.0.0.32.</span> <span class="post-toc-text">beginIndex公式：(当前页数-1)*pageSize</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#聚集函数-作用于一组数据，并对一组数据返回一个值"><span class="post-toc-number">1.0.0.0.33.</span> <span class="post-toc-text">聚集函数( 作用于一组数据，并对一组数据返回一个值 )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#COUNT-统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值"><span class="post-toc-number">1.0.0.0.34.</span> <span class="post-toc-text">COUNT:统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#MAX-统计计算最大值"><span class="post-toc-number">1.0.0.0.35.</span> <span class="post-toc-text">MAX:  统计计算最大值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#MIN-统计计算最小值"><span class="post-toc-number">1.0.0.0.36.</span> <span class="post-toc-text">MIN:  统计计算最小值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#SUM-统计计算求和"><span class="post-toc-number">1.0.0.0.37.</span> <span class="post-toc-text">SUM:  统计计算求和</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#AVG-统计计算平均值"><span class="post-toc-number">1.0.0.0.38.</span> <span class="post-toc-text">AVG:  统计计算平均值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#分组函数-注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后"><span class="post-toc-number">1.0.0.0.39.</span> <span class="post-toc-text">分组函数( 注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后 )</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Where和having的区别："><span class="post-toc-number">1.0.0.0.40.</span> <span class="post-toc-text">Where和having的区别：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Where-先过滤已有的数据-数据是已经存在的-在进行分组-在聚集计算"><span class="post-toc-number">1.0.0.0.41.</span> <span class="post-toc-text">Where: 先过滤已有的数据(数据是已经存在的),在进行分组,在聚集计算</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Having-先分组-在对每组进行计算-根据得到结果在过滤-分组把数据算出之后，在过滤"><span class="post-toc-number">1.0.0.0.42.</span> <span class="post-toc-text">Having:先分组,在对每组进行计算,根据得到结果在过滤(分组把数据算出之后，在过滤)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据查询-多表"><span class="post-toc-number">1.0.0.0.43.</span> <span class="post-toc-text">===============================数据查询-多表===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#交叉连接-又名笛卡尔积，使用交叉连接会产生笛卡尔积"><span class="post-toc-number">1.0.0.0.44.</span> <span class="post-toc-text">交叉连接:又名笛卡尔积，使用交叉连接会产生笛卡尔积</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#内连接：过滤为空的数据-查询的实际上是两张表数据的交集部分-目的-》解决笛卡尔积现象，正确查询了需要的数据"><span class="post-toc-number">1.0.0.0.45.</span> <span class="post-toc-text">内连接：过滤为空的数据(查询的实际上是两张表数据的交集部分)    目的 ==》解决笛卡尔积现象，正确查询了需要的数据</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#外连接：左外连接、右外连接、全外连接"><span class="post-toc-number">1.0.0.0.46.</span> <span class="post-toc-text">外连接：左外连接、右外连接、全外连接</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#左外连接-以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解"><span class="post-toc-number">1.0.0.0.47.</span> <span class="post-toc-text">左外连接:以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解"><span class="post-toc-number">1.0.0.0.48.</span> <span class="post-toc-text">右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名"><span class="post-toc-number">1.0.0.0.49.</span> <span class="post-toc-text">全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套"><span class="post-toc-number">1.0.0.0.50.</span> <span class="post-toc-text">子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#插入数据"><span class="post-toc-number">1.0.0.0.51.</span> <span class="post-toc-text">===============================插入数据===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#其他插入方式："><span class="post-toc-number">1.0.0.0.52.</span> <span class="post-toc-text">其他插入方式：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改数据"><span class="post-toc-number">1.0.0.0.53.</span> <span class="post-toc-text">===============================修改数据===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#删除数据"><span class="post-toc-number">1.0.0.0.54.</span> <span class="post-toc-text">===============================删除数据===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据备份"><span class="post-toc-number">1.0.0.0.55.</span> <span class="post-toc-text">===============================数据备份===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在命令行窗口进行，若操作系统版本高，则使用管理员模式"><span class="post-toc-number">1.0.0.0.56.</span> <span class="post-toc-text">在命令行窗口进行，若操作系统版本高，则使用管理员模式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据索引"><span class="post-toc-number">1.0.0.0.57.</span> <span class="post-toc-text">===============================数据索引===============================</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。"><span class="post-toc-number">1.0.0.0.58.</span> <span class="post-toc-text">索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#什么列适合建索引？？"><span class="post-toc-number">1.0.0.0.59.</span> <span class="post-toc-text">什么列适合建索引？？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sql语句创建和删除索引："><span class="post-toc-number">1.0.0.0.60.</span> <span class="post-toc-text">sql语句创建和删除索引：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-MySQL总结"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MySQL总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-09 09:32:07" datetime="2019-10-09T01:32:07.000Z"  itemprop="datePublished">2019-10-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="MySQL数据库增删改查SQL语句"><a href="#MySQL数据库增删改查SQL语句" class="headerlink" title="MySQL数据库增删改查SQL语句"></a>MySQL数据库增删改查SQL语句</h1><h5 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(    列名1 类型(长度) [约束],    列名2 类型(长度) [约束],    ……);</span><br></pre></td></tr></table></figure>
+
+<h5 id="长度区别"><a href="#长度区别" class="headerlink" title="长度区别"></a>长度区别</h5><p>int类型带长度：不影响存取值，即使设定的值超出了长度的范畴，也能存，如果没有达到设定的长度，则使用空格自动填充到设定的长度<br>char类型：不可变字符，设定的长度就是规定当前字段能存的数据的最大长度，若超出长度，则会报错，若没有达到长度，使用空格填充到设定的长度<br>varchar：可变字符，设定的长度同样是规定当前字段能存的数据的最大长度，若超出长度，则会报错，若没有达到长度，不会使用空格填充，实际多长就是多长</p>
+<h5 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE 表名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="表约束"><a href="#表约束" class="headerlink" title="表约束"></a>表约束</h5><p>1.非空约束    NOT NULL</p>
+<p>2.默认值约束  DEFAULT ‘男’</p>
+<p>3.唯一约束    UNIQUE4.主键约束    PRIMARY KEY</p>
+<h5 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h5><p>DESC 表名</p>
+<h5 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h5><h5 id="修改列名"><a href="#修改列名" class="headerlink" title="修改列名"></a>修改列名</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alter table 表名  change  列名  新列名 类型;</span><br></pre></td></tr></table></figure>
+
+<h5 id="修改列类型"><a href="#修改列类型" class="headerlink" title="修改列类型"></a>修改列类型</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alter table 表名  change 列名  列名  新类型;</span><br></pre></td></tr></table></figure>
+
+<h5 id="修改列类型-1"><a href="#修改列类型-1" class="headerlink" title="修改列类型"></a>修改列类型</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alter table 表名  modify  列名  新类型;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数据查询-单表"><a href="#数据查询-单表" class="headerlink" title="==============================数据查询-单表================================="></a>==============================数据查询-单表=================================</h5><h5 id="查询表中全部信息"><a href="#查询表中全部信息" class="headerlink" title="查询表中全部信息"></a>查询表中全部信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查询表中指定列的信息"><a href="#查询表中指定列的信息" class="headerlink" title="查询表中指定列的信息"></a>查询表中指定列的信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列1,列2 from 表名;</span><br></pre></td></tr></table></figure>
+
+<p>语句的执行顺序：from—&gt;select</p>
+<h5 id="数据去重"><a href="#数据去重" class="headerlink" title="数据去重"></a>数据去重</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct 列…. From 表名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="拼接结果"><a href="#拼接结果" class="headerlink" title="拼接结果"></a>拼接结果</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(列1,列2) from 表名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="运算符优先级："><a href="#运算符优先级：" class="headerlink" title="运算符优先级："></a>运算符优先级：</h5><p>1.乘法和除法的优先级高于加法和减法<br>2.同级运算的顺序是从左到右<br>3.表达式中使用”括号”可强行改变优先级的运算顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列1[+-*/]列2 from 表名;</span><br></pre></td></tr></table></figure>
+
+<h5 id="设置别名-注意：关键字as可以省略"><a href="#设置别名-注意：关键字as可以省略" class="headerlink" title="设置别名(注意：关键字as可以省略)"></a>设置别名(注意：关键字as可以省略)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 列 as 别名 from 表名;  </span><br><span class="line">select 列 别名 from 表名;</span><br></pre></td></tr></table></figure>
+
+<p> 语句的执行顺序：from—&gt;select</p>
+<h5 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列… from 表名 where 条件;</span><br></pre></td></tr></table></figure>
+
+<h5 id="条件中比较运算符：-等于-大于-gt-大于等于-gt-小于-lt-小于等于-lt-不等于-或-lt-gt"><a href="#条件中比较运算符：-等于-大于-gt-大于等于-gt-小于-lt-小于等于-lt-不等于-或-lt-gt" class="headerlink" title="条件中比较运算符：( 等于:=  大于:&gt;  大于等于:&gt;=  小于:&lt;  小于等于:&lt;=  不等于:!= 或 &lt;&gt;  )"></a>条件中比较运算符：( 等于:=  大于:&gt;  大于等于:&gt;=  小于:&lt;  小于等于:&lt;=  不等于:!= 或 &lt;&gt;  )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列  比较运算符  值;</span><br></pre></td></tr></table></figure>
+
+<p>注意:字符串、日期需使用单引号括起来<br>语句的执行顺序：from—&gt;where—&gt;select</p>
+<h5 id="逻辑运算符-并且-and-或-amp-amp-或-or-非-not-或"><a href="#逻辑运算符-并且-and-或-amp-amp-或-or-非-not-或" class="headerlink" title="逻辑运算符( 并且:and 或 &amp;&amp;   或:or    非:not 或 !    )"></a>逻辑运算符( 并且:and 或 &amp;&amp;   或:or    非:not 或 !    )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">where 条件1  逻辑运算符  条件2;  </span><br><span class="line">where not 条件;</span><br></pre></td></tr></table></figure>
+
+<h5 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列 between 条件1  and 条件2;</span><br></pre></td></tr></table></figure>
+
+<p>//列在这个区间的值where 列 not between 条件1 and 条件2;    </p>
+<p>//不在这个区间where !( 列 between 条件1 and 条件2 );    </p>
+<p>//同样表示不在这个区间</p>
+<h5 id="集合查询-判断列的值是否在指定的集合中"><a href="#集合查询-判断列的值是否在指定的集合中" class="headerlink" title="集合查询( 判断列的值是否在指定的集合中 )"></a>集合查询( 判断列的值是否在指定的集合中 )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列 in(值1,值2);</span><br></pre></td></tr></table></figure>
+
+<p>//列中的数据是in后的值里面的where 列 not in(值1,值2);   </p>
+<p>//不是in中指定值的数据</p>
+<h5 id="NULL值查询-注意：列中值为null不能使用-去查询"><a href="#NULL值查询-注意：列中值为null不能使用-去查询" class="headerlink" title="NULL值查询( 注意：列中值为null不能使用=去查询 )"></a>NULL值查询( 注意：列中值为null不能使用=去查询 )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列 is null;</span><br></pre></td></tr></table></figure>
+
+<p>//查询列中值为null的数据</p>
+<h5 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h5><h5 id="：表示0到多个字符，示例："><a href="#：表示0到多个字符，示例：" class="headerlink" title="%：表示0到多个字符，示例："></a>%：表示0到多个字符，示例：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列 like &apos;%0&apos;;</span><br></pre></td></tr></table></figure>
+
+<p> //表示以0结尾where 列 like  ‘0%’;   </p>
+<p>//表示以0开头where 列 like  ‘%0%’;  </p>
+<p> //表示数据中包含0</p>
+<h5 id="：表示一个字符，可多次使用，示例："><a href="#：表示一个字符，可多次使用，示例：" class="headerlink" title="_：表示一个字符，可多次使用，示例："></a>_：表示一个字符，可多次使用，示例：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 列 like &apos;%0_&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>//数据结尾第二位是0</p>
+<h5 id="结果排序-对查询出的结果按照一列或多列进行升序还是降序排列-升序-asc-降序-desc-注意：不能使用中文的别名排序"><a href="#结果排序-对查询出的结果按照一列或多列进行升序还是降序排列-升序-asc-降序-desc-注意：不能使用中文的别名排序" class="headerlink" title="结果排序( 对查询出的结果按照一列或多列进行升序还是降序排列 升序:asc  降序:desc    注意：不能使用中文的别名排序)"></a>结果排序( 对查询出的结果按照一列或多列进行升序还是降序排列 升序:asc  降序:desc    注意：不能使用中文的别名排序)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where 条件 order by 列 [asc/desc]</span><br></pre></td></tr></table></figure>
+
+<p>语句的执行顺序：from—&gt;where—&gt;select—&gt;order by</p>
+<h5 id="分页查询-beginIndex-表示从第多少条数据开始-pageSize-表示每页显示的数据条数"><a href="#分页查询-beginIndex-表示从第多少条数据开始-pageSize-表示每页显示的数据条数" class="headerlink" title="分页查询( beginIndex:表示从第多少条数据开始   pageSize:表示每页显示的数据条数 )"></a>分页查询( beginIndex:表示从第多少条数据开始   pageSize:表示每页显示的数据条数 )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where [条件] limit beginIndex,pageSize;</span><br></pre></td></tr></table></figure>
+
+<p>ex：每页显示3条数据<br>第一页: SELECT * FROM 表名 LIMIT 0,3    –0,1,2<br>第二页: SELECT * FROM 表名 LIMIT 3,3    –3,4,5<br>第三页: SELECT * FROM 表名 LIMIT 6,3    –6,7,8<br>第四页: SELECT * FROM 表名 LIMIT 9,3    –9,10,11<br>  ……<br>第七页: SELECT * FROM 表名 LIMIT 18,3   –18,19,20</p>
+<h5 id="beginIndex公式：-当前页数-1-pageSize"><a href="#beginIndex公式：-当前页数-1-pageSize" class="headerlink" title="beginIndex公式：(当前页数-1)*pageSize"></a>beginIndex公式：(当前页数-1)*pageSize</h5><h5 id="聚集函数-作用于一组数据，并对一组数据返回一个值"><a href="#聚集函数-作用于一组数据，并对一组数据返回一个值" class="headerlink" title="聚集函数( 作用于一组数据，并对一组数据返回一个值 )"></a>聚集函数( 作用于一组数据，并对一组数据返回一个值 )</h5><h5 id="COUNT-统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值"><a href="#COUNT-统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值" class="headerlink" title="COUNT:统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值"></a>COUNT:统计结果记录数，若统计的是列，列中为Null，那么count将不会计算值</h5><h5 id="MAX-统计计算最大值"><a href="#MAX-统计计算最大值" class="headerlink" title="MAX:  统计计算最大值"></a>MAX:  统计计算最大值</h5><h5 id="MIN-统计计算最小值"><a href="#MIN-统计计算最小值" class="headerlink" title="MIN:  统计计算最小值"></a>MIN:  统计计算最小值</h5><h5 id="SUM-统计计算求和"><a href="#SUM-统计计算求和" class="headerlink" title="SUM:  统计计算求和"></a>SUM:  统计计算求和</h5><h5 id="AVG-统计计算平均值"><a href="#AVG-统计计算平均值" class="headerlink" title="AVG:  统计计算平均值"></a>AVG:  统计计算平均值</h5><h5 id="分组函数-注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后"><a href="#分组函数-注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后" class="headerlink" title="分组函数( 注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后 )"></a>分组函数( 注意：如果要对分组后的数据进行筛选，那么必须使用having关键字，条件写在having后 )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 聚集函数 from 表名 where [条件] group by 列 having 分组后的条件</span><br></pre></td></tr></table></figure>
+
+<p>语句的执行顺序：FROM—&gt; WHERE—&gt;group by—-&gt;Having—&gt;SELECT–&gt;ORDER BY</p>
+<h5 id="Where和having的区别："><a href="#Where和having的区别：" class="headerlink" title="Where和having的区别："></a>Where和having的区别：</h5><h5 id="Where-先过滤已有的数据-数据是已经存在的-在进行分组-在聚集计算"><a href="#Where-先过滤已有的数据-数据是已经存在的-在进行分组-在聚集计算" class="headerlink" title="Where: 先过滤已有的数据(数据是已经存在的),在进行分组,在聚集计算"></a>Where: 先过滤已有的数据(数据是已经存在的),在进行分组,在聚集计算</h5><h5 id="Having-先分组-在对每组进行计算-根据得到结果在过滤-分组把数据算出之后，在过滤"><a href="#Having-先分组-在对每组进行计算-根据得到结果在过滤-分组把数据算出之后，在过滤" class="headerlink" title="Having:先分组,在对每组进行计算,根据得到结果在过滤(分组把数据算出之后，在过滤)"></a>Having:先分组,在对每组进行计算,根据得到结果在过滤(分组把数据算出之后，在过滤)</h5><p>注意：使用having的时候，它是可以使用别名的</p>
+<h5 id="数据查询-多表"><a href="#数据查询-多表" class="headerlink" title="===============================数据查询-多表==============================="></a>===============================数据查询-多表===============================</h5><h5 id="交叉连接-又名笛卡尔积，使用交叉连接会产生笛卡尔积"><a href="#交叉连接-又名笛卡尔积，使用交叉连接会产生笛卡尔积" class="headerlink" title="交叉连接:又名笛卡尔积，使用交叉连接会产生笛卡尔积"></a>交叉连接:又名笛卡尔积，使用交叉连接会产生笛卡尔积</h5><p>假设集合A={a, b}，集合B={0, 1, 2}，则两个集合的笛卡尔积为{(a, 0), (a, 1), (a, 2), (b, 0), (b, 1), (b, 2)}。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *  from 表1,表2</span><br></pre></td></tr></table></figure>
+
+<h5 id="内连接：过滤为空的数据-查询的实际上是两张表数据的交集部分-目的-》解决笛卡尔积现象，正确查询了需要的数据"><a href="#内连接：过滤为空的数据-查询的实际上是两张表数据的交集部分-目的-》解决笛卡尔积现象，正确查询了需要的数据" class="headerlink" title="内连接：过滤为空的数据(查询的实际上是两张表数据的交集部分)    目的 ==》解决笛卡尔积现象，正确查询了需要的数据"></a>内连接：过滤为空的数据(查询的实际上是两张表数据的交集部分)    目的 ==》解决笛卡尔积现象，正确查询了需要的数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1,表2  where 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p>//隐式内连接,使用where条件消除笛卡尔积</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 [inner] join 表2 on 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p> //显式内连接,如果是多张表，则一直在join..on后依次添加join..on即可,inner关键字可被省略</p>
+<h5 id="外连接：左外连接、右外连接、全外连接"><a href="#外连接：左外连接、右外连接、全外连接" class="headerlink" title="外连接：左外连接、右外连接、全外连接"></a>外连接：左外连接、右外连接、全外连接</h5><h5 id="左外连接-以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解"><a href="#左外连接-以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解" class="headerlink" title="左外连接:以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解"></a>左外连接:以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询结果来理解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 left [outer] join 表2 on 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p>//表1为左表，表2为右表,outer关键字可被省略</p>
+<h5 id="右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解"><a href="#右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解" class="headerlink" title="右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解"></a>右外连接：以右边表为主，返回右表中所有数据，若左表中无数据，则显示为NULL，结合实际查询结果来理解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 right [outer] join 表2 on 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p>//表1为左表，表2为右表,outer关键字可被省略</p>
+<h5 id="全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名"><a href="#全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名" class="headerlink" title="全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名"></a>全外连接：返回涉及的多表中的所有数据，MYSQL中不支持该查询，仅限了解自连接：单表当作多表查询，直白的讲就是一张表中数据含有多种关系，使用多表查询的语法，来查询一张表，查询过程中一定要使用别名</h5><p>多用在分类数据、省市县分类数据、权限…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 表1.字段1,表2.字段2 from 表名 as 表1,表名 as 表2 where 表1.字段1=表2.字段2</span><br></pre></td></tr></table></figure>
+
+<h5 id="子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套"><a href="#子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套" class="headerlink" title="子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套"></a>子查询：将一个查询结果作为另一个查询的对象，直白的讲就是SQL语句嵌套</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from (select * from 表名) as 别名select * from where 条件</span><br></pre></td></tr></table></figure>
+
+<p>//条件中包含查询语句</p>
+<p>注意：1.查询结果的虚拟表必须取别名<br>           2.字段与关键字一样，冲突时，需要给字段名加``,(Esc键下面、1的左边)<br>           3.如果给虚拟结果表中的字段取了别名，则对虚拟结果表查询时，应该用 表别名.虚拟表字段别名</p>
+<h5 id="插入数据"><a href="#插入数据" class="headerlink" title="===============================插入数据==============================="></a>===============================插入数据===============================</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(字段1,字段2..) values(值1,值2…);</span><br></pre></td></tr></table></figure>
+
+<p>注意： 1.如果插入的表中的主键是自增类型的，可以不用插入值<br>            2.如果主键是非自增 ，插入的数据则是填补主键字段值空余的值<br>            3.如果主键设置了自动递增，会从主键字段最大值开始插入数据</p>
+<h5 id="其他插入方式："><a href="#其他插入方式：" class="headerlink" title="其他插入方式："></a>其他插入方式：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(字段1,字段2) values(值1,值2),(值1,值2);</span><br></pre></td></tr></table></figure>
+
+<p>//插入多条数据【MYSQL】insert into 表名 values(值1,值2);                    </p>
+<p>//针对全表所有字段进行插入操作insert into 表名(字段) select 字段 from 表2;         </p>
+<p>//查询结果插入insert into 表名 select 字段 from 表2;               </p>
+<p>//查询结果，全表插入</p>
+<h5 id="修改数据"><a href="#修改数据" class="headerlink" title="===============================修改数据==============================="></a>===============================修改数据===============================</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表 set 字段=值 where 条件;</span><br></pre></td></tr></table></figure>
+
+<p> //带条件修改指定数据，否则修改全表</p>
+<h5 id="删除数据"><a href="#删除数据" class="headerlink" title="===============================删除数据==============================="></a>===============================删除数据===============================</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表 where 条件;</span><br></pre></td></tr></table></figure>
+
+<p>//删除数据带条件指定数据，否则删除全表数据</p>
+<h5 id="数据备份"><a href="#数据备份" class="headerlink" title="===============================数据备份==============================="></a>===============================数据备份===============================</h5><h5 id="在命令行窗口进行，若操作系统版本高，则使用管理员模式"><a href="#在命令行窗口进行，若操作系统版本高，则使用管理员模式" class="headerlink" title="在命令行窗口进行，若操作系统版本高，则使用管理员模式"></a>在命令行窗口进行，若操作系统版本高，则使用管理员模式</h5><p>导出：</p>
+<p>mysqldump -u账户 -p密码 数据库名称&gt;脚本文件存储地</p>
+<p>ex:         mysqldump -uroot -proot jdbcdemo&gt; C:/shop_bak.sql<br>导入：</p>
+<p>mysql -u账户 -p密码 数据库名称&lt; 脚本文件存储地址</p>
+<p>ex:         mysql -uroot -proot jdbcdemo&lt; C:/shop_bak.sql<br>使用可视化导入导出：<br>Navicat工具的导入和导出/Navicat工具的备份和还原</p>
+<h5 id="数据索引"><a href="#数据索引" class="headerlink" title="===============================数据索引==============================="></a>===============================数据索引===============================</h5><h5 id="索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。"><a href="#索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。" class="headerlink" title="索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。"></a>索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。</h5><h5 id="什么列适合建索引？？"><a href="#什么列适合建索引？？" class="headerlink" title="什么列适合建索引？？"></a>什么列适合建索引？？</h5><p>1.表的主键、外键必须有索引；<br>2.数据量超过30000的表应该有索引；<br>3.经常与其他表进行连接的表，在连接字段上应该建立索引；<br>4.经常出现在Where子句中的字段，特别是大表的字段，应该建立索引；<br>5.索引应该建在选择性高的字段上；<br>6.索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引； </p>
+<h5 id="sql语句创建和删除索引："><a href="#sql语句创建和删除索引：" class="headerlink" title="sql语句创建和删除索引："></a>sql语句创建和删除索引：</h5><p>创建索引: </p>
+<p>CREATE INDEX 索引名称 ON 表名 (列名)</p>
+<p>删除索引:<br>方式一：</p>
+<p>DROP INDEX 索引名 ON 表名 </p>
+<p>方式二:  </p>
+<p>ALTER TABLE 表名 DROP INDEX 索引名</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-10-09T01:35:31.882Z" itemprop="dateUpdated">2019-10-09 09:35:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" target="_blank" rel="external">https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://cz123456.github.io">
+            <img src="/img/avatar.jpg" alt="cz">
+            cz
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&title=《MySQL总结》 — Cz的博客&pic=https://cz123456.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&title=《MySQL总结》 — Cz的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL总结》 — Cz的博客&url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&via=https://cz123456.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/13/hello-world/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>このブログの内容物は<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cz &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&title=《MySQL总结》 — Cz的博客&pic=https://cz123456.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&title=《MySQL总结》 — Cz的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL总结》 — Cz的博客&url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/&via=https://cz123456.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://cz123456.github.io/2019/10/09/MySQL%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
